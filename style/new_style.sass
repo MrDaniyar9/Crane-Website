@@ -1,0 +1,270 @@
+@import "mixins/mixins"
+$red: rgba(235, 14, 14, 1)
+
+body
+  margin: 0 auto
+  padding: 0
+  overflow: hidden
+  // background-color: aqua
+a
+  text-decoration: none
+
+.slider
+  position: relative
+  margin: auto
+  height: 300px
+  margin-bottom: 15px
+
+/* Картинка мастабируется по отношению к родительскому элементу */
+.slider .item img
+  object-fit: cover
+  width: 100%
+  height: 300px
+  border: none !important
+  box-shadow: none !important
+
+/* Кнопки вперед и назад */
+.slider .prev, .slider .next
+  cursor: pointer
+  position: absolute
+  top: 50vh
+  width: auto
+  margin-top: -22px
+  padding: 16px
+  color: white
+  font-weight: bold
+  font-size: 18px
+  transition: 0.6s ease
+  border-radius: 0 3px 3px 0
+
+.slider .next
+  right: 0
+  border-radius: 3px 0 0 3px
+
+/* При наведении на кнопки добавляем фон кнопок */
+.slider .prev:hover,
+.slider .next:hover
+  background-color: rgba(0, 0, 0, 0.8)
+
+/* Заголовок слайда */
+.slideText
+  position: absolute
+  color: #fff
+  font-size: 35px
+  /* Выравнивание текста по горизонтали и по вертикали*/
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  /* Тень*/
+  text-shadow: 1px 1px 1px #000, 0 0 1em #000
+
+/* Кружочки */
+.slider-dots
+  text-align: center
+
+.slider-dots_item
+  cursor: pointer
+  height: 1200px
+  width: 1200px
+  margin: 0 2px
+  background-color: #ddd
+  border-radius: 50%
+  display: inline-block
+  transition: background-color 0.6s ease
+
+.active,
+.slider-dots_item:hover
+  background-color: #aaa
+
+/* Анимация слайдов */
+.slider .item
+  -webkit-animation-name: fade
+  -webkit-animation-duration: 1.5s
+  animation-name: fade
+  animation-duration: 1.5s
+
+// @-webkit-keyframes fade
+//   from
+//   opacity: .4
+//   to
+//   opacity: 1
+
+@keyframes fade
+  from
+    opacity: .4
+
+  to
+    opacity: 1
+
+// -----------------------Начало header----------------------------
+.main_header
+  @include flex(100vw, 15vh, 15vh)
+  position: absolute
+  justify-content: center
+  z-index: 999
+
+  .inner_header
+    @include flex(90vw, 15vh, 15vh)
+    justify-content: space-between
+    .left_header
+      @include flex(40vw, 15vh, 15vh)
+      justify-content: space-between
+      .first_left_header
+        @include flex(14vw, 15vh, 15vh)
+        justify-content: space-between
+        align-items: center
+        a
+          color: red
+          font-size: 1.8em
+        :nth-child(2)
+          color: gray
+          font-size: 1em
+      .second_left_header
+        @include flex(13vw, 15vh, 15vh)
+        justify-content: space-between
+        align-items: center
+        :nth-child(1)
+          color: #fff
+          font-size: 1em
+        img
+          width: 1.82vw
+        .insta_icon
+          width: 2.19vw
+          margin: 0
+          padding: 0
+    .right_header
+      @include flex(45vw, 15vh, 15vh)
+      justify-content: space-between
+      .right_header_first
+        @include flex(15vw, 15vh, 15vh)
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+      p
+        color: #fff
+        font-size: 1em
+      :nth-child(2)
+        color: gray
+      .right_header_second
+        @include flex(15vw, 15vh, 15vh)
+        align-items: center
+        justify-content: space-between
+        a
+          color: #fff
+          .span_container
+            @include size(2.5vw, 3vh, 3vh)
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            .line1
+              @include size(37px, 1.2px)
+              background-color: #000
+            .line2
+              @include size(37px, .7px)
+              background-color: #000
+            .line3
+              @include size(37px, .7px)
+              background-color: #000
+.page_one
+  @include flex(100vw, 100vh, 100vh)
+  background-image: url("../images/main_background.png")
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  justify-content: center
+  display: flex !important
+  align-items: center
+  // border: 1px solid red
+
+.page_one .page_one_header
+  @include flex(80vw, 67vh, 67vh)
+  border: 1px solid green
+  flex-direction: column
+  justify-content: space-between
+
+.page_one_header h1
+  color: $red
+  font-size: 3.75em
+  justify-content: flex-start
+  // border: 1px solid yellow
+.page_one_par
+  @include flex(85vw, 10vh, 10vh)
+  align-items: center
+  color: #fff
+  font-size: 1.75em
+  justify-content: space-between
+  // line-height: 100%
+  // border: 1px solid pink
+.all_courses
+  @include flex(2.5vw, 20vh , 20vh)
+  background-color: $red
+  outline: none
+  color: #fff
+  position: relative
+  padding: 0
+  margin: 0
+  display: inline-block !important
+
+.all_courses p
+  transform: rotate(90deg)
+  white-space: nowrap
+  margin-bottom: 10.5vh
+  position: relative
+.application
+  @include flex(15vw, 7vh, 7vh)
+  background-color: $red
+  justify-content: center
+
+  p
+    color: #fff
+
+.page_two
+  background-color: #000
+  @include size(100vw, 120vh, 120vh)
+  position: absolute
+  left: 50%
+  top: 100%
+  transform: translate(-50%, -50%)
+  // display: flex !important
+
+  justify-content: center
+  // top: 0
+  // display: inline-flex !important
+  .page_two_header
+    font-size: 1.87em
+    position: absolute
+    margin: 0 auto
+    top: 40vh
+    left: 45vw
+    color: $red
+    @incldue size(80vw, auto, auto)
+
+.main_page_two
+  @include size(100vw,65vh, 65vh)
+  // border: 1px solid red
+  position: absolute
+  top: 50vh
+  display: flex !important
+  justify-content: center
+.inner_main
+  @include size(90vw, 65vh, 65vh)
+  // border: 1px solid green
+  display: flex !important
+  flex-direction: row
+.left_main
+  @include size(45vw, auto, auto)
+  .left_par_one
+    color: #fff
+    font-size: 0.875em
+    span
+      color: $red
+  .left_par_two
+    color: #fff
+    font-size: 0.875em
+    span
+      color: $red
+.right_main
+  @include size(45vw, auto, auto)
+  img
+    width: 45.39vw !important
+    height: auto !important
